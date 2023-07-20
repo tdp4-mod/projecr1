@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/socket.io/socket.io.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz App</title>
+
+
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js" integrity="sha512-mgZL3SZ/vIooDg2mU2amX6NysMlthFl/jDbscSRgF/k3zmICLe6muAs7YbITZ+61FeUoo1plofYAocoR5Sa1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css" integrity="sha512-NXUhxhkDgZYOMjaIgd89zF2w51Mub53Ru3zCNp5LTlEzMbNNAjTjDbpURYGS5Mop2cU4b7re1nOIucsVlrx9fA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js" integrity="sha512-mgZL3SZ/vIooDg2mU2amX6NysMlthFl/jDbscSRgF/k3zmICLe6muAs7YbITZ+61FeUoo1plofYAocoR5Sa1rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/index.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/rest.css" type="text/css"> 
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/mobile.css" type="text/css">
+</head>
+<body>
+
+     <input type="text" oninput="searchUser(this)" placeholder="Enter ID: ">
+
+    <div class="selector">
+       <h3>IT'S Sanalika FUN & WIN TIME !</h3> 
+       <p id="tt1">-</p>
+       <hr>
+       <div class="option">
+            <div class="one category">
+                <h4>PLATFORM</h4>
+                <a id="FB">Facebook</a>
+                <a id="DP">Global</a>
+                
+            </div>
+            <div class="one level">
+                <h4>Nickname</h4>
+                <a id="nickname"></a>
+            </div>
+        </div>
+        <button class="startBtn" style="display:none">START THE QUIZ!</button>
+        <span class="bg-circle"></span>
+        <span class="bg-circle two"></span>
+    </div>
+    <section>
+        <div class="info-block">
+        <div id="countdown"></div>
+
+            <h3 id="question-rewars">Questions</h3>
+            <p class="game-info">Platform: <span class="game-info1"></span> <br> Nickname: <span class="game-info2"></span></p>
+        </div>
+        <div id="question-block" class="question-block">
+       <p id="myq"> </p>
+        <ul id="ul_q"></ul>
+        </div>
+           <div id="onq" class="one category">
+           
+            </div>
+        <span class="bg-circle"></span>
+        <span class="bg-circle two"></span>
+      
+    </section>
+  
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript">
+  Noty.overrideDefaults({
+    layout   : 'topRight',
+    theme    : 'mint',
+    closeWith: ['click', 'button'],
+    
+    callbacks: {
+        beforeShow: function() {},
+        onShow: function() {},
+        afterShow: function() {},
+        onClose: function() {},
+        afterClose: function() {},
+        onHover: function() {},
+        onTemplate: function() {
+            if (this.options.type === 'reply') {
+
+        this.barDom.innerHTML = '<div class="my-custom-template noty_body">';
+        this.barDom.innerHTML += '<div class="noty-header"><a href="' + this.options.category_link + '">' + this.options.category + '</a> <span class="noty-bull">&bull;</span> <span class="noty-date">' + this.options.date + '</span></div>';
+        this.barDom.innerHTML += '<h3 class="from-name">' + this.options.from + '</h3>';
+        this.barDom.innerHTML += '<p class="noty-reply">' + this.options.text + '</p>';
+        this.barDom.innerHTML += '<img src="' + this.options.avatar + '">';
+        this.barDom.innerHTML += '<div>';
+            }
+    }
+    }
+});
+   const notyTopElement = document.querySelector('#noty_top');
+        if(notyTopElement) {
+            notyTopElement.addEventListener('click', function() {
+                new Noty({
+                  
+                  layout:"topRight",
+                     text: 'Can you check out the case I assigned to you?',
+  type: 'reply',
+  category: 'Messages',
+  category_link: '/messages',
+  date: Date.now(),
+  from: 'Dr Patricia Wang',
+  avatar: 'https://avatars3.githubusercontent.com/u/271912?v=4&s=460'
+                }).on('onShow', function() {
+    console.log("fuck")
+}).show();
+            });
+        }
+
+</script>
+
+
+</body>
+</html>
